@@ -1,6 +1,9 @@
 import numpy as np
 
 
+# n — длина списка, k — размер окна.
+# Всего окон n - k + 1. Для каждого складываем k чисел.
+# Сложность: O((n - k + 1) * k).
 def average(numbers, k):
     if type(k) is not int or k <= 0 or k > len(numbers):
         raise ValueError("Неверный размер окна.")
@@ -31,6 +34,9 @@ def average_numpy(numbers, k):
     return result
 
 
+# Сумму первого окна считаем один раз.
+# При сдвиге вычитаем ушедшее число и прибавляем новое.
+# Сложность: O(n).
 def average_fast(numbers, k):
     if type(k) is not int or k <= 0 or k > len(numbers):
         raise ValueError("Неверный размер окна.")
@@ -68,6 +74,8 @@ def main():
 
             same = True
 
+            # Дробные результаты сравниваем с небольшой
+            # погрешностью из-за особенностей типа float.
             for i in range(len(a)):
                 if abs(a[i] - b[i]) > 0.000001:
                     same = False

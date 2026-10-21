@@ -12,10 +12,14 @@ def find_point(points, x0, y0):
 
         square = (x - x0) ** 2 + (y - y0) ** 2
 
+        # При одинаковом расстоянии сохраняем первую точку.
         if square < min_square:
             min_square = square
             best = point
 
+    # Квадратный корень возрастает вместе с числом.
+    # Поэтому для поиска минимума достаточно сравнивать
+    # квадраты расстояний. Корень нужен только для ответа.
     distance = min_square ** 0.5
 
     return best, distance

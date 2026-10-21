@@ -1,22 +1,29 @@
 from pathlib import Path
 
-folder = Path(__file__).parent / "7"
+
+folder = Path(input("Введите путь к папке: ").strip())
 extension = input("Введите расширение, например .py: ").strip()
 
 if extension and not extension.startswith("."):
     extension = "." + extension
 
-if not extension:
-    print("Расширение не введено.")
+try:
+    if not extension:
+        print("Расширение не введено.")
 
-elif not folder.is_dir():
-    print("Папка 7 не найдена.")
+    elif not folder.is_dir():
+        print("Папка не найдена.")
 
-else:
-    try:
+    else:
+        found = False
+
         for item in folder.rglob("*"):
             if item.is_file() and item.suffix == extension:
                 print(item, "-", item.stat().st_size, "байт")
+                found = True
 
-    except OSError as error:
-        print("Ошибка:", error)
+        if not found:
+            print("Файлы с таким расширением не найдены.")
+
+except OSError as error:
+    print("Ошибка работы с папкой:", error)

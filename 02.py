@@ -3,7 +3,7 @@ max_number = None
 total = 0
 count = 0
 
-with open("2.txt", encoding="utf-8") as file:
+with open("numbers.txt", encoding="utf-8") as file:
     for line in file:
         try:
             number = int(line)
@@ -27,3 +27,5 @@ with open("result.txt", "w", encoding="utf-8") as file:
         file.write(f"Среднее: {total / count}\n")
     else:
         file.write("В файле нет чисел.\n")
+
+print("Результат записан в result.txt")

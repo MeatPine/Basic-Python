@@ -2,8 +2,9 @@ import re
 import json
 import logging
 
+
 logging.basicConfig(
-    filename="18.log",
+    filename="processing.log",
     level=logging.INFO,
     encoding="utf-8"
 )
@@ -70,7 +71,7 @@ try:
 
 except UnicodeDecodeError:
     logging.error("Ошибка кодировки файла")
-    print("Не удалось прочитать текст в UTF-8.")
+    print("Не удалось прочитать файл в UTF-8.")
 
 except OSError as error:
     logging.error(str(error))

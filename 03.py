@@ -1,5 +1,6 @@
 import csv
 
+
 total = 0
 count = 0
 max_score = None
@@ -8,7 +9,7 @@ best_name = ""
 group_total = {}
 group_count = {}
 
-with open("3.csv", encoding="utf-8", newline="") as file:
+with open("students.csv", encoding="utf-8", newline="") as file:
     students = csv.DictReader(file)
 
     for student in students:
